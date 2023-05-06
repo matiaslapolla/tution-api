@@ -1,0 +1,14 @@
+# Ignore all files with the .DS_Store extension
+*.DS_Store
+
+# Ignore files in the build directory
+/build
+
+# Ignore .log files
+*.log
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore files in the dist directory
+/dist
