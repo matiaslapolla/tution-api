@@ -9,15 +9,8 @@ export class UserService {
 		this.userRepository = new UserRepositoryImpl();
 	}
 
-	public create(user: User): Object {
-		const serviceMessage = "UserService.create()";
-		const resp: Object = this.userRepository.create(user);
-
-		const userResp = {
-			message: serviceMessage,
-			data: resp,
-		};
-
-		return userResp;
+	public async create(user: User): Promise<any> {
+		const resp: any = await this.userRepository.create(user);
+		return resp;
 	}
 }

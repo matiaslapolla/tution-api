@@ -1,27 +1,19 @@
-import { UserHelper } from "../../helpers/user/user.helper";
+import { User } from "../../domain/user/iuser.entity";
 import { UserService } from "../../service/user/user.service";
 
 export class UserController {
 	private UserService: UserService;
-	private UserHelper: UserHelper;
 
 	constructor() {
 		this.UserService = new UserService();
-		this.UserHelper = new UserHelper();
 	}
 
-	create(user: any) {
-		const validRequest = this.UserHelper.validateUser(user);
-		let resp: Object = {};
-
-		if (!validRequest) {
-			resp = {
-				message: "UserController.create()",
-				data: "Invalid request",
-			};
-		}
-
-		resp = this.UserService.create(user);
-		return resp;
+	public async create(user: User): Promise<any> {
+		const resp: any = await this.UserService.create(user);
+		const respObject = {
+			status: "success",
+			data: resp,
+		};
+		return respObject;
 	}
 }
