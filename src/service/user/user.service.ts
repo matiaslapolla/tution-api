@@ -9,8 +9,8 @@ export class UserService {
 		this.userRepository = new UserRepositoryImpl();
 	}
 
-	public async create(user: User): Promise<any> {
-		const resp: any = await this.userRepository.create(user);
+	public create(user: User): Object {
+		const resp: any = this.userRepository.create(user);
 		return resp;
 	}
 }

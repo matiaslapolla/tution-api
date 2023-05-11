@@ -19,10 +19,10 @@ export class UserRepositoryImpl implements UserRepository {
 		});
 	}
 
-	public async create(user: User): Promise<Object> {
+	public create(user: User): Object {
 		try {
 			const newUser: any = new this.userModel(user);
-			const resp: any = await newUser.save();
+			const resp: any = newUser.save();
 			return resp;
 		} catch (error: any) {
 			console.error(error);
